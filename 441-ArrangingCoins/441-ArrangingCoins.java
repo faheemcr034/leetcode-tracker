@@ -1,0 +1,21 @@
+// Last updated: 09/07/2026, 10:08:00
+class Solution {
+    public int arrangeCoins(int n) {
+        int low = 0;
+        int high = n;
+        while(low<=high){
+            int mid = (low+high)/2;
+            long coins = (long) mid*(mid+1)/2;
+            if(n==coins){
+                return mid;
+            }
+            if(n>coins){
+                low = mid+1;
+            } 
+            else{
+                high = mid-1;
+            }
+        }
+        return high;
+    }
+}
